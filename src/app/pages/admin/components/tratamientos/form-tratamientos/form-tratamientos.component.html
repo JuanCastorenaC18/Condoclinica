@@ -1,0 +1,73 @@
+<div class="container">
+  <br>
+  <mat-toolbar>
+      <span>Formulario de tratamientos</span>
+  </mat-toolbar>
+  <mat-card style="margin-top: 10px;">
+    <!--<form [formGroup]="form" (submit)="agregar()">
+      <mat-grid-list cols="4" rowHeight="60px">
+
+        <mat-grid-tile [colspan]="1" [rowspan]="1">
+          <mat-form-field class="ancho">
+            <mat-label>Medicamento</mat-label>
+            <input matInput autocomplete="off" formControlName="medicamento">
+            <mat-error *ngIf="isValidField('medicamento')">
+              {{getErrorMessage('medicamento')}}
+            </mat-error>
+          </mat-form-field>
+        </mat-grid-tile>
+
+        <mat-grid-tile [colspan]="3" [rowspan]="5">
+          <img src="../../../../../../assets/img/medicamento.png">
+        </mat-grid-tile>
+
+        <mat-grid-tile [colspan]="1" [rowspan]="1">
+          <mat-form-field class="ancho">
+            <mat-label>Indicaciones</mat-label>
+            <input matInput autocomplete="off" formControlName="indicaciones">
+            <mat-error *ngIf="isValidField('indicaciones')">
+              {{getErrorMessage('indicaciones')}}
+            </mat-error>
+          </mat-form-field>
+        </mat-grid-tile>
+
+        <mat-grid-tile [colspan]="1" [rowspan]="1">
+          <button mat-raised-button (click)="regresar()" style="margin-right: 20px;">Cancelar</button>
+          <button mat-raised-button [disabled]="form.invalid" type="submit" color="primary">Aceptar</button>
+        </mat-grid-tile>
+
+      </mat-grid-list>
+    </form>-->
+
+    <form [formGroup]="tratamientoForm" (ngSubmit)="agregar()">
+        
+      <mat-form-field appearance="fill">
+        <mat-label>medicamento</mat-label>
+          <input formControlName="medicamento" matInput #input placeholder="Ex. AXA">
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>indicaciones</mat-label>
+          <input formControlName="indicaciones" matInput #input placeholder="Ex. 1000">
+      </mat-form-field>
+
+      <!--<mat-form-field appearance="fill">
+        <mat-label>rol</mat-label>
+          <input formControlName="rol" matInput #input placeholder="Ex. lo mejor">
+      </mat-form-field>-->
+
+      <mat-form-field appearance="fill">
+        <mat-label>consulta</mat-label>
+        <mat-select formControlName="consulta">
+          <mat-option *ngFor="let element of consultas" value="{{element.id_consulta}}">{{element.id_consulta}}</mat-option>
+        </mat-select> 
+      </mat-form-field>
+        
+      
+      <button mat-raised-button (click)="regresar()" style="margin-right: 20px;">Cancelar</button>
+      <button type="submit" mat-raised-button>Agregar User</button>
+    </form>
+
+  </mat-card>
+</div>
+<br>

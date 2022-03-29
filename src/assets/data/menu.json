@@ -1,0 +1,38 @@
+[
+  {
+    "nombre": "Usuarios",
+    "redirect": "/admin/usuarios"
+  },
+  {
+      "nombre": "Aseguradoras",
+      "redirect": "/admin/aseguradoras"
+  },
+  {
+      "nombre": "Citas",
+      "redirect": "/admin/citas"
+  },
+  {
+      "nombre": "Clinicas",
+      "redirect": "/admin/clinicas"
+  },
+  {
+      "nombre": "Consultas",
+      "redirect": "/admin/consultas"
+  },
+  {
+      "nombre": "Especialidades",
+      "redirect": "/admin/especialidades"
+  },
+  {
+      "nombre": "Pacientes",
+      "redirect": "/admin/pacientes"
+  },
+  {
+      "nombre": "Medicos",
+      "redirect": "/admin/medicos"
+  },
+  {
+      "nombre": "Tratamientos",
+      "redirect": "/admin/tratamientos"
+  }
+]

@@ -1,0 +1,27 @@
+<div class="body">
+  <div class="register">
+    <mat-spinner *ngIf="loading" class="spinner" diameter="50"></mat-spinner>
+    <form *ngIf="!loading" [formGroup]="form">
+      <img src="../../../../assets/img/register.png" width="50%">
+      <h1 class="h3 mb-3 fw-normal">Registrate</h1>
+        <mat-form-field class="ancho" appearance="fill">
+          <mat-label>Email</mat-label>
+          <input type="text" matInput autocomplete="off" formControlName="email">
+          <mat-error *ngIf="isValidField('email')">
+            {{getErrorMessage('email')}}
+          </mat-error>
+        </mat-form-field>
+      <mat-form-field class="ancho" appearance="fill">
+        <mat-label>Password</mat-label>
+        <input type="password" matInput autocomplete="off" formControlName="password">
+        <mat-error *ngIf="isValidField('password')">
+          {{getErrorMessage('password')}}
+        </mat-error>
+      </mat-form-field>
+      <br>
+      <button type="submit" class="ancho" mat-raised-button mat-button color="primary" [disabled]="form.invalid">Ingresar</button>
+      <br><br>
+      <a routerLink="/login">¿Ya tienes una cuenta?</a>
+    </form>
+  </div>
+</div>

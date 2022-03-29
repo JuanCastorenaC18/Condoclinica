@@ -1,0 +1,81 @@
+<div class="container">
+  <br>
+  <mat-toolbar>
+      <span>Formulario de usuarios</span>
+  </mat-toolbar>
+  <mat-card style="margin-top: 10px;">
+    <!--<form [formGroup]="form" (submit)="agregar()">
+      <mat-grid-list cols="4" rowHeight="60px">
+
+        <mat-grid-tile [colspan]="1" [rowspan]="1">
+          <mat-form-field class="ancho">
+            <mat-label>Email</mat-label>
+            <input matInput autocomplete="off" formControlName="email">
+            <mat-error *ngIf="isValidField('email')">
+              {{getErrorMessage('email')}}
+            </mat-error>
+          </mat-form-field>
+        </mat-grid-tile>
+
+        <mat-grid-tile [colspan]="3" [rowspan]="5">
+          <img src="../../../../../../assets/img/register.png">
+        </mat-grid-tile>
+
+        <mat-grid-tile [colspan]="1" [rowspan]="1">
+          <mat-form-field class="ancho">
+            <mat-label>Password</mat-label>
+            <input matInput autocomplete="off" formControlName="password">
+            <mat-error *ngIf="isValidField('password')">
+              {{getErrorMessage('password')}}
+            </mat-error>
+          </mat-form-field>
+        </mat-grid-tile>
+
+        <mat-grid-tile [colspan]="1" [rowspan]="1">
+          <mat-form-field class="ancho">
+            <mat-label>Rol</mat-label>
+            <input matInput autocomplete="off" formControlName="rol">
+            <mat-error *ngIf="isValidField('rol')">
+              {{getErrorMessage('rol')}}
+            </mat-error>
+          </mat-form-field>
+        </mat-grid-tile>
+
+        <mat-grid-tile [colspan]="1" [rowspan]="1">
+          <button mat-raised-button (click)="regresar()" style="margin-right: 20px;">Cancelar</button>
+          <button mat-raised-button [disabled]="form.invalid" type="submit" color="primary">Aceptar</button>
+        </mat-grid-tile>
+
+      </mat-grid-list>
+    </form>-->
+    <form [formGroup]="userForm" (ngSubmit)="agregar()">
+        
+      <mat-form-field appearance="fill">
+        <mat-label>email</mat-label>
+          <input formControlName="email" matInput #input placeholder="Ex. AXA">
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>password</mat-label>
+          <input formControlName="password" matInput #input placeholder="Ex. 1000">
+      </mat-form-field>
+
+      <!--<mat-form-field appearance="fill">
+        <mat-label>rol</mat-label>
+          <input formControlName="rol" matInput #input placeholder="Ex. lo mejor">
+      </mat-form-field>-->
+
+      <mat-form-field appearance="fill">
+        <mat-label>rol</mat-label>
+        <mat-select formControlName="rol">
+          <mat-option *ngFor="let element of rols" value="{{element.id_rol}}">{{element.nombre}}</mat-option>
+        </mat-select> 
+      </mat-form-field>
+        
+      
+      <button mat-raised-button (click)="regresar()" style="margin-right: 20px;">Cancelar</button>
+      <button type="submit" mat-raised-button>Agregar User</button>
+    </form>
+  </mat-card>
+</div>
+<br>

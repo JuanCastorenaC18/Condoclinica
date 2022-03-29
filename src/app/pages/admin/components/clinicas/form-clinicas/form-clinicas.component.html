@@ -1,0 +1,75 @@
+<div class="container">
+  <br>
+  <mat-toolbar>
+      <span>Formulario de clinicas</span>
+  </mat-toolbar>
+  <mat-card style="margin-top: 10px;">
+    <!--<form [formGroup]="form" (submit)="agregar()">
+      <mat-grid-list cols="4" rowHeight="60px">
+
+        <mat-grid-tile [colspan]="1" [rowspan]="1">
+          <mat-form-field class="ancho">
+            <mat-label>Nombre</mat-label>
+            <input matInput autocomplete="off" formControlName="nombre">
+            <mat-error *ngIf="isValidField('nombre')">
+              {{getErrorMessage('nombre')}}
+            </mat-error>
+          </mat-form-field>
+        </mat-grid-tile>
+
+        <mat-grid-tile [colspan]="3" [rowspan]="5">
+          <img src="../../../../../../assets/img/condoclinica.jpg">
+        </mat-grid-tile>
+
+        <mat-grid-tile [colspan]="1" [rowspan]="1">
+          <mat-form-field class="ancho">
+            <mat-label>Telefono</mat-label>
+            <input matInput autocomplete="off" formControlName="telefono">
+            <mat-error *ngIf="isValidField('telefono')">
+              {{getErrorMessage('telefono')}}
+            </mat-error>
+          </mat-form-field>
+        </mat-grid-tile>
+
+        <mat-grid-tile [colspan]="1" [rowspan]="1">
+          <mat-form-field class="ancho">
+            <mat-label>Direccion</mat-label>
+            <input matInput autocomplete="off" formControlName="direccion">
+            <mat-error *ngIf="isValidField('direccion')">
+              {{getErrorMessage('direccion')}}
+            </mat-error>
+          </mat-form-field>
+        </mat-grid-tile>
+
+        <mat-grid-tile [colspan]="1" [rowspan]="1">
+          <button mat-raised-button (click)="regresar()" style="margin-right: 20px;">Cancelar</button>
+          <button mat-raised-button [disabled]="form.invalid" type="submit" color="primary">Aceptar</button>
+        </mat-grid-tile>
+
+      </mat-grid-list>
+    </form>-->
+
+    <form [formGroup]="clinicaForm" (ngSubmit)="agregar()">
+        
+      <mat-form-field appearance="fill">
+        <mat-label>nombre</mat-label>
+          <input formControlName="nombre" matInput #input placeholder="Ex. AXA">
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>telefono</mat-label>
+          <input formControlName="telefono" matInput #input placeholder="Ex. 1000">
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>direccion</mat-label>
+          <input formControlName="direccion" matInput #input placeholder="Ex. lo mejor">
+      </mat-form-field>
+        
+      
+      <button mat-raised-button (click)="regresar()" style="margin-right: 20px;">Cancelar</button>
+      <button type="submit" mat-raised-button>Agregar Clinica</button>
+    </form>
+
+  </mat-card>
+</div>

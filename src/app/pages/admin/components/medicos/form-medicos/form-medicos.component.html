@@ -1,0 +1,125 @@
+<div class="container">
+  <br>
+  <mat-toolbar>
+      <span>Formulario de medicos</span>
+  </mat-toolbar>
+  <mat-card style="margin-top: 10px;">
+    <!--<form [formGroup]="form" (submit)="agregar()">
+      <mat-grid-list cols="4" rowHeight="60px">
+
+        <mat-grid-tile [colspan]="1" [rowspan]="1">
+          <mat-form-field class="ancho">
+            <mat-label>Nombre</mat-label>
+            <input matInput autocomplete="off" formControlName="nombre">
+            <mat-error *ngIf="isValidField('nombre')">
+              {{getErrorMessage('nombre')}}
+            </mat-error>
+          </mat-form-field>
+        </mat-grid-tile>
+
+        <mat-grid-tile [colspan]="3" [rowspan]="6">
+          <img src="../../../../../../assets/img/medicos.png" style="width: 40%;">
+        </mat-grid-tile>
+
+        <mat-grid-tile [colspan]="1" [rowspan]="1">
+          <mat-form-field class="ancho">
+            <mat-label>Telefono</mat-label>
+            <input matInput autocomplete="off" formControlName="telefono">
+            <mat-error *ngIf="isValidField('telefono')">
+              {{getErrorMessage('telefono')}}
+            </mat-error>
+          </mat-form-field>
+        </mat-grid-tile>
+
+        <mat-grid-tile [colspan]="1" [rowspan]="1">
+          <mat-form-field class="ancho">
+            <mat-label>Edad</mat-label>
+            <input matInput autocomplete="off" formControlName="edad">
+            <mat-error *ngIf="isValidField('edad')">
+              {{getErrorMessage('edad')}}
+            </mat-error>
+          </mat-form-field>
+        </mat-grid-tile>
+
+        <mat-grid-tile [colspan]="1" [rowspan]="1">
+          <mat-form-field class="ancho">
+            <mat-label>Sexo</mat-label>
+            <input matInput autocomplete="off" formControlName="sexo">
+            <mat-error *ngIf="isValidField('sexo')">
+              {{getErrorMessage('sexo')}}
+            </mat-error>
+          </mat-form-field>
+        </mat-grid-tile>
+
+        <mat-grid-tile [colspan]="1" [rowspan]="1">
+          <mat-form-field class="ancho">
+            <mat-label>Especialidad</mat-label>
+            <input matInput autocomplete="off" formControlName="especialidad">
+            <mat-error *ngIf="isValidField('especialidad')">
+              {{getErrorMessage('especialidad')}}
+            </mat-error>
+          </mat-form-field>
+        </mat-grid-tile>
+
+        <mat-grid-tile [colspan]="1" [rowspan]="1">
+          <mat-form-field class="ancho">
+            <mat-label>Usuario</mat-label>
+            <input matInput autocomplete="off" formControlName="usuario">
+            <mat-error *ngIf="isValidField('usuario')">
+              {{getErrorMessage('usuario')}}
+            </mat-error>
+          </mat-form-field>
+        </mat-grid-tile>
+
+        <mat-grid-tile [colspan]="1" [rowspan]="1">
+          <button mat-raised-button (click)="regresar()" style="margin-right: 20px;">Cancelar</button>
+          <button mat-raised-button [disabled]="form.invalid" type="submit" color="primary">Aceptar</button>
+        </mat-grid-tile>
+
+      </mat-grid-list>
+    </form>-->
+    <form [formGroup]="medicoForm" (ngSubmit)="agregar()">
+
+      <mat-form-field appearance="fill">
+        <mat-label>nombre</mat-label>
+          <input formControlName="nombre" matInput #input placeholder="Ex. 1000">
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>telefono</mat-label>
+          <input formControlName="telefono" matInput #input placeholder="Ex. 1000">
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>edad</mat-label>
+          <input formControlName="edad" matInput #input placeholder="Ex. 1000">
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Sexo</mat-label>
+          <input formControlName="sexo" matInput #input placeholder="Ex. 1000">
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>usuario</mat-label>
+          <input formControlName="usuario" matInput #input placeholder="Ex. 1000">
+      </mat-form-field>
+
+      <!--<mat-form-field appearance="fill">
+        <mat-label>rol</mat-label>
+          <input formControlName="rol" matInput #input placeholder="Ex. lo mejor">
+      </mat-form-field>-->
+
+      <mat-form-field appearance="fill">
+        <mat-label>especialidad</mat-label>
+        <mat-select formControlName="especialidad">
+          <mat-option *ngFor="let element of especialidades" value="{{element.id_aseguradora}}">{{element.nombre}}</mat-option>
+        </mat-select> 
+      </mat-form-field>
+        
+      
+      <button mat-raised-button (click)="regresar()" style="margin-right: 20px;">Cancelar</button>
+      <button type="submit" mat-raised-button>Agregar User</button>
+    </form>
+  </mat-card>
+</div>

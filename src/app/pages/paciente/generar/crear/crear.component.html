@@ -1,0 +1,62 @@
+<div class="container">
+  <br>
+  <mat-toolbar>
+      <span>Generar mi cita</span>
+  </mat-toolbar>
+  <mat-card style="margin-top: 10px;">
+    <form [formGroup]="form" (submit)="agregar()">
+      <mat-grid-list cols="4" rowHeight="60px">
+
+        <mat-grid-tile [colspan]="1" [rowspan]="1">
+          <mat-form-field class="ancho">
+            <mat-label>Fecha</mat-label>
+            <input matInput autocomplete="off" formControlName="fecha">
+            <mat-error *ngIf="isValidField('fecha')">
+              {{getErrorMessage('fecha')}}
+            </mat-error>
+          </mat-form-field>
+        </mat-grid-tile>
+
+        <mat-grid-tile [colspan]="3" [rowspan]="5">
+          <img src="../../../../../../assets/img/citas-medicas.png">
+        </mat-grid-tile>
+
+        <mat-grid-tile [colspan]="1" [rowspan]="1">
+          <mat-form-field class="ancho">
+            <mat-label>Medico</mat-label>
+            <input matInput autocomplete="off" formControlName="medico">
+            <mat-error *ngIf="isValidField('medico')">
+              {{getErrorMessage('medico')}}
+            </mat-error>
+          </mat-form-field>
+        </mat-grid-tile>
+
+        <mat-grid-tile [colspan]="1" [rowspan]="1">
+          <mat-form-field class="ancho">
+            <mat-label>Paciente</mat-label>
+            <input matInput autocomplete="off" formControlName="paciente">
+            <mat-error *ngIf="isValidField('paciente')">
+              {{getErrorMessage('paciente')}}
+            </mat-error>
+          </mat-form-field>
+        </mat-grid-tile>
+
+        <mat-grid-tile [colspan]="1" [rowspan]="1">
+          <mat-form-field class="ancho">
+            <mat-label>Clinica</mat-label>
+            <input matInput autocomplete="off" formControlName="clinica">
+            <mat-error *ngIf="isValidField('clinica')">
+              {{getErrorMessage('clinica')}}
+            </mat-error>
+          </mat-form-field>
+        </mat-grid-tile>
+
+        <mat-grid-tile [colspan]="1" [rowspan]="1">
+          <button mat-raised-button (click)="regresar()" style="margin-right: 20px;">Cancelar</button>
+          <button mat-raised-button [disabled]="form.invalid" type="submit" color="primary">Aceptar</button>
+        </mat-grid-tile>
+
+      </mat-grid-list>
+    </form>
+  </mat-card>
+</div>

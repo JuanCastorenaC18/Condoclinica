@@ -1,0 +1,6 @@
+[
+  {
+    "nombre": "Ver citas",
+    "redirect": "/paciente/verCita"
+  }
+]

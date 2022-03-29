@@ -1,0 +1,52 @@
+<div class="container">
+  <br>
+  <mat-toolbar>
+      <span>Formulario de consultas</span>
+  </mat-toolbar>
+  <mat-card style="margin-top: 10px;">
+    <form [formGroup]="form" (submit)="agregar()">
+      <mat-grid-list cols="4" rowHeight="60px">
+
+        <mat-grid-tile [colspan]="1" [rowspan]="1">
+          <mat-form-field class="ancho">
+            <mat-label>Sintomas</mat-label>
+            <input matInput autocomplete="off" formControlName="sintomas">
+            <mat-error *ngIf="isValidField('sintomas')">
+              {{getErrorMessage('sintomas')}}
+            </mat-error>
+          </mat-form-field>
+        </mat-grid-tile>
+
+        <mat-grid-tile [colspan]="3" [rowspan]="5">
+          <img src="../../../../../../assets/img/consulta.jpg">
+        </mat-grid-tile>
+
+        <mat-grid-tile [colspan]="1" [rowspan]="1">
+          <mat-form-field class="ancho">
+            <mat-label>Tratamiento</mat-label>
+            <input matInput autocomplete="off" formControlName="tratamiento">
+            <mat-error *ngIf="isValidField('tratamiento')">
+              {{getErrorMessage('tratamiento')}}
+            </mat-error>
+          </mat-form-field>
+        </mat-grid-tile>
+
+        <mat-grid-tile [colspan]="1" [rowspan]="1">
+          <mat-form-field class="ancho">
+            <mat-label>Cita</mat-label>
+            <input matInput autocomplete="off" formControlName="cita">
+            <mat-error *ngIf="isValidField('cita')">
+              {{getErrorMessage('cita')}}
+            </mat-error>
+          </mat-form-field>
+        </mat-grid-tile>
+
+        <mat-grid-tile [colspan]="1" [rowspan]="1">
+          <button mat-raised-button (click)="regresar()" style="margin-right: 20px;">Cancelar</button>
+          <button mat-raised-button [disabled]="form.invalid" type="submit" color="primary">Aceptar</button>
+        </mat-grid-tile>
+
+      </mat-grid-list>
+    </form>
+  </mat-card>
+</div>

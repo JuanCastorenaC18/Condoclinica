@@ -1,0 +1,22 @@
+<mat-toolbar color="primary">
+  <span>CondoClinica</span>
+  <span class="example-spacer"></span>
+  <button mat-button *ngFor="let item of menu" [routerLink]="item.redirect">{{ item.nombre }}</button>
+  <!--<button mat-button routerLink="/dashboard/aseguradoras">Aseguradoras</button>
+  <button mat-button routerLink="/dashboard/citas">Citas</button>
+  <button mat-button routerLink="/dashboard/clinicas">Clinicas</button>
+  <button mat-button routerLink="/dashboard/consultas">Consultas</button>
+  <button mat-button routerLink="/dashboard/especialidades">Especialidades</button>
+  <button mat-button routerLink="/dashboard/estados">Estados</button>
+  <button mat-button routerLink="/dashboard/pacientes">Pacientes</button>
+  <button mat-button routerLink="/dashboard/tratamientos">Tratamientos</button>-->
+  <span class="example-spacer"></span>
+  <button (click)="logout()" mat-button>
+    <mat-icon>
+      logout
+    </mat-icon>
+    <span>
+      Logout
+    </span>
+  </button>
+</mat-toolbar>
