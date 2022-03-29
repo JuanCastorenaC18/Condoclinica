@@ -97,7 +97,7 @@ export class MedicosComponent implements OnInit {
     this.getMedico();
     this.getEspecialidad();
     this.getUser();
-    this.suscription = this.Svuser.refresh$.subscribe(()=>{
+    this.suscription = this.Svmed.refresh$.subscribe(()=>{
       this.getMedico();
     })
   }

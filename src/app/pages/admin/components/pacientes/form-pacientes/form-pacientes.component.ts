@@ -84,7 +84,7 @@ export class FormPacientesComponent implements OnInit {
   }
 
   getAseguradora(): void{
-    this.Svase.getaseguradora().subscribe((data:any)=>{
+    this.Svase.get().subscribe((data:any)=>{
       this.aseguradoras = data
     })
     console.log(this.aseguradoras)
@@ -203,5 +203,4 @@ export class FormPacientesComponent implements OnInit {
     this.form.value.aseguradora = data.aseguradora
     this.form.value.usuario = data.usuario
   }
-
 }

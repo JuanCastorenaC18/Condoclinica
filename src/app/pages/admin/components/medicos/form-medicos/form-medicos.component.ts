@@ -47,9 +47,6 @@ export class FormMedicosComponent implements OnInit {
       'nombre': new FormControl('', [
         Validators.required
       ]),
-      'nss': new FormControl('', [
-        Validators.required
-      ]),
       'telefono': new FormControl('', [
         Validators.required
       ]),
@@ -59,7 +56,7 @@ export class FormMedicosComponent implements OnInit {
       'sexo': new FormControl('', [
         Validators.required
       ]),
-      'aseguradora': new FormControl('', [
+      'especialidad': new FormControl('', [
         Validators.required
       ]),
       'usuario': new FormControl('', [
@@ -74,7 +71,7 @@ export class FormMedicosComponent implements OnInit {
       this.Medicos = data;
     })
     this.getMedicos();
-    this.getAseguradora();
+    this.getEspecialidad();
     this.getUser();
     this.suscription = this.SVmed.refresh$.subscribe(()=>{
       this.getMedicos();
@@ -87,7 +84,7 @@ export class FormMedicosComponent implements OnInit {
     })
   }
 
-  getAseguradora(): void{
+  getEspecialidad(): void{
     this.Svesp.get().subscribe((data:any)=>{
       this.especialidades = data
     })
@@ -108,7 +105,7 @@ export class FormMedicosComponent implements OnInit {
       });
     }else{
       this.setMedico();
-      this.Svesp.create(this.Medicoi).subscribe((data:any)=>{
+      this.SVmed.create(this.Medicoi).subscribe((data:any)=>{
         console.log("Se agrego correctamente")
       })
     }

@@ -14,7 +14,30 @@ export class AseguradoraService {
 
   refresh$ = new Subject<void>();
 
-  getaseguradora(){
+  get(){
+    return this.http.get(this.apiUrl + '/aseguradora');
+  }
+  create(aseguradora:InterAseguradoras):Observable<any>{
+    return this.http.post(this.apiUrl + '/aseguradora/', aseguradora)
+  }
+  delete(id:Number):Observable<any>{
+    return this.http.delete(this.apiUrl+ '/aseguradora/' + id)
+    .pipe(
+      tap(()=>{
+        this.refresh$.next();
+      })
+    );
+  }
+  update(aseguradora:InterAseguradoras):Observable<any>{
+    return this.http.put(`${this.apiUrl}/aseguradora/`, aseguradora)
+    .pipe(
+      tap(()=>{
+        this.refresh$.next();
+      })
+    );
+  }
+
+  /*getaseguradora(){
     return this.http.get(this.apiUrl + '/aseguradora');
   }
   addase(aseguradora:InterAseguradoras):Observable<any>{
@@ -44,7 +67,7 @@ export class AseguradoraService {
 
   dropAse(id:any){
     return this.http.delete(this.apiUrl + '/AseguradoraDrop/' + id)
-  }
+  }*/
 
   /**tokenverificacioncrud(){
     const token=localStorage.getItem("token")

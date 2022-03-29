@@ -1,21 +1,39 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Observable, Subject, tap } from 'rxjs';
+import { InterConsultas } from '../pages/admin/components/interfaces/consulta';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ConsultasService {
-
   apiUrl:string = 'http://192.168.1.68:3333/api/v1'
 
-  constructor(
-    private http:HttpClient
-  ) {
+  refresh$ = new Subject<void>()
 
-  }
+  constructor(private http:HttpClient) {}
 
   get(){
     return this.http.get(this.apiUrl + '/consulta');
+  }
+  create(consulta:InterConsultas):Observable<any>{
+    return this.http.post(this.apiUrl + '/consulta/', consulta)
+  }
+  delete(id:Number):Observable<any>{
+    return this.http.delete(this.apiUrl+ '/consulta/' + id)
+    .pipe(
+      tap(()=>{
+        this.refresh$.next();
+      })
+    );
+  }
+  update(consulta:InterConsultas):Observable<any>{
+    return this.http.put(`${this.apiUrl}/consulta/`, consulta)
+    .pipe(
+      tap(()=>{
+        this.refresh$.next();
+      })
+    );
   }
   /*create(tratamiento:InterTratamiento):Observable<any>{
     return this.http.post(this.apiUrl + '/tratamiento', tratamiento)

@@ -17,7 +17,7 @@
       <input matInput (keyup)="applyFilter($event)" placeholder="Ej. Maria" #input>
     </mat-form-field>
 
-    <table mat-table [dataSource]="dataSource" matSort
+    <table mat-table [dataSource]="data" matSort
     class="mat-elevation-z8" (matSortChange)="announceSortChange($event)">
 
         <ng-container matColumnDef="id_consulta">
@@ -30,9 +30,9 @@
           <td mat-cell *matCellDef="let element"> {{element.sintomas}} </td>
         </ng-container>
 
-        <ng-container matColumnDef="tratamiento">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header> Tratamiento </th>
-          <td mat-cell *matCellDef="let element"> {{element.tratamiento}} </td>
+        <ng-container matColumnDef="diagnostico">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> diagnostico </th>
+          <td mat-cell *matCellDef="let element"> {{element.diagnostico}} </td>
         </ng-container>
 
         <ng-container matColumnDef="cita">
@@ -48,7 +48,7 @@
                 (click)="editar(element)">
                 <mat-icon>edit</mat-icon>
               </button>
-              <button mat-raised-button color="warn" (click)="eliminar(element.id_cli)">
+              <button mat-raised-button color="warn" (click)="eliminar(element.id_consulta)">
                 <mat-icon>delete</mat-icon>
               </button>
             </div>

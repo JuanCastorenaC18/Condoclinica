@@ -61,7 +61,7 @@ export class AseguradorasComponent implements OnInit, AfterViewInit {
 
   ngOnInit(): void {
     //this.cargarData()
-    this.asSvc.getaseguradora().subscribe((data: any)=>{
+    this.asSvc.get().subscribe((data: any)=>{
       this.Aseguradora = data;
     })
     this.getAseguradora();
@@ -71,7 +71,7 @@ export class AseguradorasComponent implements OnInit, AfterViewInit {
   }
 
   getAseguradora(): void{
-    this.asSvc.getaseguradora().subscribe((data: any)=>{
+    this.asSvc.get().subscribe((data: any)=>{
       this.data = data;
     })
   }
@@ -113,7 +113,7 @@ export class AseguradorasComponent implements OnInit, AfterViewInit {
     this.asSvc.delete(id).subscribe((data:any)=>{
       console.log(data)
     })
-    this.asSvc.getaseguradora()
+    this.asSvc.get()
   }
 
   mensajeExito(){

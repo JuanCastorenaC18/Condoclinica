@@ -4,7 +4,7 @@
       <span>Formulario de citas</span>
   </mat-toolbar>
   <mat-card style="margin-top: 10px;">
-    <form [formGroup]="form" (submit)="agregar()">
+    <!--<form [formGroup]="form" (submit)="agregar()">
       <mat-grid-list cols="4" rowHeight="60px">
 
         <mat-grid-tile [colspan]="1" [rowspan]="1">
@@ -57,6 +57,62 @@
         </mat-grid-tile>
 
       </mat-grid-list>
+    </form>-->
+
+    <form [formGroup]="citaForm" (ngSubmit)="agregar()">
+
+      
+      <mat-form-field appearance="fill">
+        <mat-label>fecha</mat-label>
+          <input formControlName="fecha" matInput #input placeholder="0000-00-00">
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Hora</mat-label>
+        <mat-select formControlName="hora">
+          <mat-option value="10:00:00">10:00:00</mat-option>
+          <mat-option value="11:00:00">11:00:00</mat-option>
+          <mat-option value="12:00:00">12:00:00</mat-option>
+          <mat-option value="13:00:00">13:00:00</mat-option>
+          <mat-option value="14:00:00">14:00:00</mat-option>
+          <mat-option value="15:00:00">15:00:00</mat-option>
+        </mat-select>
+      </mat-form-field>
+      
+      <!--<mat-form-field appearance="fill">
+        <mat-label>Sexo</mat-label>
+          <input formControlName="sexo" matInput #input placeholder="Ex. 1000">
+      </mat-form-field>-->
+
+      <mat-form-field appearance="fill">
+        <mat-label>medico</mat-label>
+        <mat-select formControlName="medico">
+          <mat-option *ngFor="let element of medicos" value="{{element.id_medico}}">{{element.nombre}}</mat-option>
+        </mat-select> 
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>paciente</mat-label>
+        <mat-select formControlName="paciente">
+          <mat-option *ngFor="let element of pacientes" value="{{element.id_paciente}}">{{element.nombre}}</mat-option>
+        </mat-select> 
+      </mat-form-field>
+
+      <!--<mat-form-field appearance="fill">
+        <mat-label>rol</mat-label>
+          <input formControlName="rol" matInput #input placeholder="Ex. lo mejor">
+      </mat-form-field>-->
+
+      <mat-form-field appearance="fill">
+        <mat-label>clinica</mat-label>
+        <mat-select formControlName="clinica">
+          <mat-option *ngFor="let element of clinicas" value="{{element.id_cli}}">{{element.nombre}}</mat-option>
+        </mat-select> 
+      </mat-form-field>
+        
+      
+      <button mat-raised-button (click)="regresar()" style="margin-right: 20px;">Cancelar</button>
+      <button type="submit" mat-raised-button>Agregar Cita</button>
     </form>
   </mat-card>
 </div>

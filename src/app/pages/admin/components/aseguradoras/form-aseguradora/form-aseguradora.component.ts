@@ -65,7 +65,7 @@ export class FormAseguradoraComponent implements OnInit {
       });
     }else{
       this.setAseguradora();
-      this.asSvc.addase(this.Aseguradorai).subscribe((data:any)=>{
+      this.asSvc.create(this.Aseguradorai).subscribe((data:any)=>{
         console.log("Se agrego correctamente")
         
       })

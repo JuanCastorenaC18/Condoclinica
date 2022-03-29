@@ -24,6 +24,8 @@ import { MatSelectModule } from '@angular/material/select';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatTabsModule } from '@angular/material/tabs';
 import {MatGridListModule} from '@angular/material/grid-list';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+
 
 const myModules = [
   CommonModule,
@@ -49,7 +51,8 @@ const myModules = [
   FormsModule,
   ReactiveFormsModule,
   MatTabsModule,
-  MatGridListModule
+  MatGridListModule,
+  MatDatepickerModule
 ]
 
 @NgModule({

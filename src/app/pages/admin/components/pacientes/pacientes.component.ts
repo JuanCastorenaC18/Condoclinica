@@ -107,7 +107,7 @@ export class PacientesComponent implements OnInit {
   }
 
   getAseguradora(): void{
-    this.Svase.getaseguradora().subscribe((data:any)=>{
+    this.Svase.get().subscribe((data:any)=>{
       this.aseguradoras = data
     })
     console.log(this.aseguradoras)

@@ -95,9 +95,17 @@
           <input formControlName="edad" matInput #input placeholder="Ex. 1000">
       </mat-form-field>
 
-      <mat-form-field appearance="fill">
+      <!--<mat-form-field appearance="fill">
         <mat-label>Sexo</mat-label>
           <input formControlName="sexo" matInput #input placeholder="Ex. 1000">
+      </mat-form-field>-->
+
+      <mat-form-field appearance="fill">
+        <mat-label>Sexo</mat-label>
+        <mat-select formControlName="sexo">
+          <mat-option value="Masculino">Masculino</mat-option>
+          <mat-option value="Femenino">Femenino</mat-option>
+        </mat-select>
       </mat-form-field>
 
       <mat-form-field appearance="fill">
@@ -113,13 +121,13 @@
       <mat-form-field appearance="fill">
         <mat-label>especialidad</mat-label>
         <mat-select formControlName="especialidad">
-          <mat-option *ngFor="let element of especialidades" value="{{element.id_aseguradora}}">{{element.nombre}}</mat-option>
+          <mat-option *ngFor="let element of especialidades" value="{{element.id_especialidad}}">{{element.nombre}}</mat-option>
         </mat-select> 
       </mat-form-field>
         
       
       <button mat-raised-button (click)="regresar()" style="margin-right: 20px;">Cancelar</button>
-      <button type="submit" mat-raised-button>Agregar User</button>
+      <button type="submit" mat-raised-button>Agregar Medico</button>
     </form>
   </mat-card>
 </div>

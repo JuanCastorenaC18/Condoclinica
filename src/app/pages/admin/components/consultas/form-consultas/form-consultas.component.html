@@ -4,7 +4,7 @@
       <span>Formulario de consultas</span>
   </mat-toolbar>
   <mat-card style="margin-top: 10px;">
-    <form [formGroup]="form" (submit)="agregar()">
+    <!--<form [formGroup]="form" (submit)="agregar()">
       <mat-grid-list cols="4" rowHeight="60px">
 
         <mat-grid-tile [colspan]="1" [rowspan]="1">
@@ -47,6 +47,41 @@
         </mat-grid-tile>
 
       </mat-grid-list>
+    </form>-->
+
+    <form [formGroup]="consultaForm" (ngSubmit)="agregar()">
+
+      
+      <mat-form-field appearance="fill">
+        <mat-label>sintomas</mat-label>
+          <input formControlName="sintomas" matInput #input placeholder="sintomas">
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>diagnostico</mat-label>
+          <input formControlName="diagnostico" matInput #input placeholder="diagnostico">
+      </mat-form-field>
+      
+      <!--<mat-form-field appearance="fill">
+        <mat-label>Sexo</mat-label>
+          <input formControlName="sexo" matInput #input placeholder="Ex. 1000">
+      </mat-form-field>-->
+
+      <mat-form-field appearance="fill">
+        <mat-label>cita</mat-label>
+        <mat-select formControlName="cita">
+          <mat-option *ngFor="let element of citas" value="{{element.id_cita}}">{{element.id_cita}}</mat-option>
+        </mat-select> 
+      </mat-form-field>
+
+      <!--<mat-form-field appearance="fill">
+        <mat-label>rol</mat-label>
+          <input formControlName="rol" matInput #input placeholder="Ex. lo mejor">
+      </mat-form-field>-->
+        
+      
+      <button mat-raised-button (click)="regresar()" style="margin-right: 20px;">Cancelar</button>
+      <button type="submit" mat-raised-button>Agregar Cita</button>
     </form>
   </mat-card>
 </div>

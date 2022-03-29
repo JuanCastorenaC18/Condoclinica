@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class RolsService {
 
-  apiUrl:string = 'http://192.168.80.220:3333/api/v1'
+  apiUrl:string = 'http://192.168.1.68:3333/api/v1'
 
   constructor(private http:HttpClient) { }
 

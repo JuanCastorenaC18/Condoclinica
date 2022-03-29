@@ -1,14 +1,16 @@
 export interface Citas {
   id_cita:number,
   fecha:string,
-  medico:string,
-  paciente:string,
-  clinica:string
+  hora:string,
+  medico:number,
+  paciente:number,
+  clinica:number
 }
 
 export interface Cita {
   fecha:string,
-  medico:string,
-  paciente:string,
-  clinica:string
+  hora:string,
+  medico:number,
+  paciente:number,
+  clinica:number
 }
